@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leflet JS Quick Start</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <link rel="stylesheet" href="main.css"/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
+</head>
+<body>
+
+<div id="streetMap"></div>
+<div id="satelliteMap"></div>
+
+
+<script>
+    var streetMap = L.map('streetMap').setView([45, -90], 10);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; ' +
+            '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © ' +
+            '<a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 25,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoiZmFzdGVjaG8iLCJhIjoiY2syNWMyc3J0MWdzNTNubWxnbHA1NHdtMSJ9.lhYHfEKiUVwIbOCmGDMmKQ'
+    }).addTo(streetMap);
+
+    var satelliteMap = L.map('satelliteMap').setView([45, -90], 10);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; ' +
+            '<a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © ' +
+            '<a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 25,
+        id: 'mapbox.satellite',
+        accessToken: 'pk.eyJ1IjoiZmFzdGVjaG8iLCJhIjoiY2syNWMyc3J0MWdzNTNubWxnbHA1NHdtMSJ9.lhYHfEKiUVwIbOCmGDMmKQ'
+    }).addTo(satelliteMap);
+
+
+</script>
+
+</body>
+</html>
